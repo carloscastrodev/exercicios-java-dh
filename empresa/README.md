@@ -4,6 +4,10 @@ Exercício sobre rotas protegidas por autoridade / papel utilizando Spring Secur
 
 <hr />
 
+## Requisitos
+- Java 8
+- Banco de dados MySQL
+
 ## Como utilizar
 
 É necessário um banco de dados com nome "empresa" rodando na porta 3306, conforme a configuração do application.properties. Há um script SQL "Empresa.sql" na pasta, que executa todos os comandos necessário para criar o schema, as tabelas popular as mesmas.
@@ -32,27 +36,27 @@ Senha: 123456
 
 ### /produtos
 
-#### GET /produtos
+#### # GET /produtos
 
 Lista os produtos cadastrados no banco de dados.
 _Acesso: Todos_
 
-#### GET /produtos/{id}
+#### # GET /produtos/{id}
 
 Retorna o produto com o id requisitado.
 _Acesso: Todos_
 
-#### GET /produtos/nome
+#### # GET /produtos/nome
 
 Query param de busca por nome parecido com o valor da query.
 _Acesso: Todos_
 
-#### GET /produtos/estoque
+#### # GET /produtos/estoque
 
 Query param de busca por estoque mínimo do produto.
 _Acesso: Todos_
 
-#### POST /produtos
+#### # POST /produtos
 
 Cadastra um novo produto no banco de dados. O corpo da requisição deve ter o seguinte formato:
 _Acesso: ROLE_FUNC, ROLE_GERN_
@@ -66,12 +70,12 @@ _Acesso: ROLE_FUNC, ROLE_GERN_
 }
 ```
 
-#### PUT /produtos/{id}
+#### # PUT /produtos/{id}
 
 Realiza uma edição no produto com ID selecionado. O corpo da requisição deve conter o campo e o valor desejado para realizar a alteração.
 _Acesso: ROLE_FUNC, ROLE_GERN_
 
-#### DELETE /produtos/{id}
+#### # DELETE /produtos/{id}
 
 Deleta o produto com o ID selecionado.
 _Acesso: ROLE_FUNC, ROLE_GERN_
@@ -80,17 +84,17 @@ _Acesso: ROLE_FUNC, ROLE_GERN_
 
 ### /clientes
 
-#### GET /clientes
+#### # GET /clientes
 
 Lista os clientes cadastrados no banco de dados.
 _Acesso: Todos_
 
-#### GET /clientes/{id}
+#### # GET /clientes/{id}
 
 Retorna o cliente com o id requisitado.
 _Acesso: Todos_
 
-#### POST /clientes
+#### # POST /clientes
 
 Cadastra um novo cliente no banco de dados. O corpo da requisição deve ter o seguinte formato:
 _Acesso: ROLE_FUNC, ROLE_GERN_
@@ -104,12 +108,12 @@ _Acesso: ROLE_FUNC, ROLE_GERN_
 }
 ```
 
-#### PUT /clientes/{id}
+#### # PUT /clientes/{id}
 
 Realiza uma edição no cliente com ID selecionado. O corpo da requisição deve conter o campo e o valor desejado para realizar a alteração.
 _Acesso: ROLE_FUNC, ROLE_GERN_
 
-#### DELETE /clientes/{id}
+#### # DELETE /clientes/{id}
 
 Deleta o cliente com o ID selecionado.
 _Acesso: ROLE_FUNC, ROLE_GERN_
@@ -118,12 +122,12 @@ _Acesso: ROLE_FUNC, ROLE_GERN_
 
 ### /ponto
 
-#### GET /ponto/{id}
+#### # GET /ponto/{id}
 
 Lista os pontos batidos pelo funcionário com o id selecionado.
 _Acesso: ROLE_FUNC, ROLE_GERN_
 
-#### POST /ponto
+#### # POST /ponto
 
 Cadastra um novo ponto no banco de dados. O corpo da requisição deve ter o seguinte formato:
 _Acesso: ROLE_FUNC, ROLE_GERN_
@@ -140,17 +144,17 @@ _Acesso: ROLE_FUNC, ROLE_GERN_
 
 ### /funcionarios
 
-#### GET /funcionarios
+#### # GET /funcionarios
 
 Lista os clientes funcionários da empresa (incluindo os gerentes) no banco de dados.
 _Acesso: ROLE_FUNC, ROLE_GERN_
 
-#### GET /funcionarios/{id}
+#### # GET /funcionarios/{id}
 
 Retorna o funcionário com o id requisitado.
 _Acesso: Todos_
 
-#### POST /funcionarios
+#### # POST /funcionarios
 
 Cadastra um novo funcionário no banco de dados. O corpo da requisição deve ter o seguinte formato:
 _Acesso: ROLE_GERN_
@@ -166,7 +170,7 @@ _Acesso: ROLE_GERN_
 }
 ```
 
-#### PUT /funcionarios/reajuste/{id}
+#### # PUT /funcionarios/reajuste/{id}
 
 Realiza uma edição no campo de salário do usuário com o id selecionado. O corpo da requisição deve ter o seguinte formato:
 
@@ -178,7 +182,7 @@ Realiza uma edição no campo de salário do usuário com o id selecionado. O co
 
 _Acesso: ROLE_GERN_
 
-#### DELETE /funcionarios/demitir/{id}
+#### # DELETE /funcionarios/demitir/{id}
 
 Deleta (demite) o funcionário com o ID desejado do banco de dados.
 _Acesso: ROLE_GERN_
@@ -187,17 +191,17 @@ _Acesso: ROLE_GERN_
 
 ### /pedidos
 
-#### GET /pedidos/{nfe}
+#### # GET /pedidos/{nfe}
 
 Retorna o pedido cadastrado com a nota fiscal(nfe) selecionada.
 _Acesso: ROLE_FUNC, ROLE_GERN_
 
-#### GET /pedidos/cliente/{id}
+#### # GET /pedidos/cliente/{id}
 
 Retorna todos os pedidos cadastrados para o cliente com o id selecionado.
 _Acesso: ROLE_FUNC, ROLE_GERN_
 
-#### POST /pedidos
+#### # POST /pedidos
 
 Cadastra um novo pedido no banco de dados. O corpo da requisição deve ter o seguinte formato:
 _Acesso: ROLE_FUNC, ROLE_GERN_
@@ -211,7 +215,7 @@ _Acesso: ROLE_FUNC, ROLE_GERN_
 }
 ```
 
-#### DELETE /{nfe}
+#### # DELETE /{nfe}
 
 Deleta o pedido com a nota fiscal (nfe) selecionada.
 _Acesso: ROLE_FUNC, ROLE_GERN_
